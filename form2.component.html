@@ -1,0 +1,65 @@
+<div align="center">
+ <h1>Reactive Drive SignUp Forms</h1>
+ <hr>
+ <div class="container">
+ <form [formGroup]="myform" (ngSubmit)="onRegisterClick()">
+  <div class="form-group">
+ <div align="left"><label for="usr">First Name:</label></div>
+ <input type="text" class="form-control" formControlName="firstname">
+ </div>
+ <span class="error"
+ *ngIf="myform.controls.firstname.touched && myform.controls.firstname.invalid && myform.controls.firstname.errors.required">
+ Firstname can't be blank
+ </span>
+ <span class="error"
+ *ngIf="myform.controls.firstname.touched && myform.controls.firstname.invalid && myform.controls.firstname.errors.minlength">
+ Min: 5 characters
+ </span>
+ <span class="error"
+ *ngIf="myform.controls.firstname.touched && myform.controls.firstname.invalid && myform.controls.firstname.errors.maxlength">
+ Max:20 characters
+ </span>
+ <span class="error"
+ *ngIf="myform.controls.firstname.touched && myform.controls.firstname.invalid && myform.controls.firstname.errors.pattern">
+ Alphabets only allowed
+ </span>
+ <br><br>
+ <div class="form-group">
+ <div align="left"><label for="usr">Last Name:</label></div>
+ <input type="text" class="form-control" formControlName="lastname">
+ </div>
+ <span class="error"
+ *ngIf="myform.controls.lastname.touched && myform.controls.lastname.invalid && myform.controls.lastname.errors.required">
+ Lastname can't be blank
+ </span>
+ <span class="error"
+ *ngIf="myform.controls.lastname.touched && myform.controls.lastname.invalid && myform.controls.lastname.errors.minlength">
+ Min: 5 characters
+ </span>
+ <span class="error"
+ *ngIf="myform.controls.lastname.touched && myform.controls.lastname.invalid && myform.controls.lastname.errors.maxlength">
+ Max: 20 characters
+ </span>
+ <span class="error" *ngIf="myform.controls.lastname.touched && myform.controls.lastname.invalid && myform.controls.lastname.errors.pattern">
+Alphabets only allowed
+ </span>
+ <br><br>
+ <div class="form-group">
+ <div align="left"><label for="usr">Country:</label></div>
+ <select class="form-control" formControlName="country">
+ <option>Please Select</option>
+ <option>India</option>
+ <option>USA</option>
+ <option>UK</option>
+ <option>Japan</option>
+ </select>
+ </div>
+<span class="error"*ngIf="myform.controls.country.touched && myform.controls.country.invalid && myform.controls.country.errors.required">
+ Please Select Country
+ </span>
+ <br><br>
+ <input class ="btn btn-success" type="submit" value="SignUP" ><br>
+ <div [innerHTML]="msg"></div>
+ </form>
+</div>
+
