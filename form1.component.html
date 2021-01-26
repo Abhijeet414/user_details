@@ -1,0 +1,33 @@
+<div align="center">
+ <h1>Reactive Drive Login Forms</h1>
+ <hr>
+ <div class="container">
+ <form [formGroup]="myform" (ngSubmit)="onRegisterClick()">
+  <div class="form-group">
+ <div align="left"><label for="usr">USERNAME:</label></div>
+ <input type="text" class="form-control" formControlName="username">
+ </div>
+ <span class="error" *ngIf="myform.controls.username.touched && myform.controls.username.invalid && myform.controls.username.errors.required">
+ : Alphabets, Digits and
+  Hyphens only
+ </span>
+
+ <br><br>
+ <div class="form-group">
+<div align="left"><label for="usr">PASSWORD:</label></div>
+ <input type="text" class="form-control" formControlName="password">
+ </div>
+ <span class="error" *ngIf="myform.controls.password.touched && myform.controls.password.invalid && myform.controls.password.errors.required">
+ 6 to 15 characters;
+at least one upper case letter,
+one lower case letter and one digit
+ </span>
+ <br><br>
+ 
+ <input class ="btn btn-success" type="submit" value="Login" ><br>
+ <div [innerHTML]="msg"></div>
+ </form>
+</div>
+</div>
+
+
